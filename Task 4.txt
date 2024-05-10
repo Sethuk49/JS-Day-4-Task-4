@@ -1,0 +1,140 @@
+ 
+
+My  own resume data in JSON format, iterated by looping methods;
+
+
+
+let resume = {
+    name: "K Sethu Ram",
+    father: "R Kannan",
+    age: "21",
+    DOB: "04.02.2003",
+    email:"sethuk49@gmail.com",
+    phone: ["9597648609", "8428138509"],
+temporary_address: {
+        DoorNo: "53/6a",
+        streetname: "Perumal street",
+        road: "Butt road",
+        area: "St. Thomas mount",
+        district:"chennai",
+        Pincode: "600016"
+    },
+    permanent_address: {
+        DoorNo: "165",
+        streetname: "metangadu",
+        road: "Melakaraikadu west",
+        area: "melakaraikadu",
+        taluk:"thottiyam",
+        district:"trichy",
+        Pincode: "621203"
+    },
+    Education: {
+        SSLC: "80%",
+        HSC: "50%",
+        Degree: "B.Sc (Zoology) with 80%"
+    },
+    AdditionalSkills: ["Typewriting", "Basics of computer", "Problem solving", "Good communication"],
+    language: ["Tamil", "English"]
+};
+
+
+
+//for loop  method:
+
+
+
+for (let key in resume) {
+    if (resume.hasOwnProperty(key)) {
+        console.log(key + ":");
+        if (Array.isArray(resume[key])) {
+            for (let i = 0; i < resume[key].length; i++) {
+                console.log("  - " + resume[key][i]);
+           }
+        } else if (typeof resume[key] === 'object') {
+            for (let prop in resume[key]) {
+                if (resume[key].hasOwnProperty(prop)) {
+                    console.log("  " + prop + ": " + resume[key][prop]);
+                }
+            }
+        } else {
+            console.log("  " + resume[key]);
+        }
+    }
+}
+
+............................***...............................................
+
+// for in method
+
+
+
+for (let key in resume) {
+    if (resume.hasOwnProperty(key)) {
+        console.log(key + ":");
+ 
+        if (Array.isArray(resume[key])) {
+            resume[key].forEach(item => console.log("  - " + item));
+        }
+         else if (typeof resume[key] === 'object') {
+            for (let prop in resume[key]) {
+                if (resume[key].hasOwnProperty(prop)) {
+                    console.log("  " + prop + ": " + resume[key][prop]);
+                }
+            }
+        }
+         else {
+            console.log("  " + resume[key]);
+        }
+    }
+}
+
+
+...............................***............................................
+ 
+
+// for of method
+
+
+for (let key of Object.keys(resume)) {
+    console.log(key + ":");
+    if (Array.isArray(resume[key])) {
+        for (let item of resume[key]) {
+            console.log("  - " + item);
+        }
+    }   
+    else if (typeof resume[key] === 'object') {
+        for (let prop of Object.keys(resume[key])) {
+            console.log("  " + prop + ": " + resume[key][prop]);
+        }
+    }
+    else {
+        console.log("  " + resume[key]);
+    }
+}
+
+
+.................................***.......................................
+
+
+// for Each method
+
+for (let key in resume) {
+    if (Array.isArray(resume[key])) {
+        console.log(key + ":");  
+        resume[key].forEach(item => console.log("  - " + item));
+    } else if (typeof resume[key] === 'object') {
+        console.log(key + ":");
+              for (let prop in resume[key]) {
+            console.log("  " + prop + ": " + resume[key][prop]);
+        }
+    } else {
+        console.log(key + ": " + resume[key]);
+    }
+}
+
+
+...............................***..............................................
+
+
+
+                            Thank You
